@@ -4,32 +4,3 @@
   width: 70%;
   margin: 0 auto;
 }
-
-h1 {
-  padding-top: 10px;
-  text-align: center;
-}
-
-form.todo {
-  margin: 50px 0;
-  height: 50px;
-  display: flex;
-
-  button[type="submit"] {
-    height: 40px;
-    width: 60px;
-    cursor: pointer;
-    margin-left: 5px;
-  }
-}
-
-table {
-  display: flex;
-  flex-direction: column;
-}
-
-span.delete {
-  padding-left: 10px;
-  color: red;
-  cursor: pointer;
-}

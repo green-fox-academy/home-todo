@@ -1,25 +1,4 @@
 <div class="container">
   <app-header></app-header>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Tasks</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let todo of listOfTodos">
-        <td>
-          <form class="checkbox">
-            <label>
-              <input type="checkbox" [checked]="todo.isCompleted" />
-              <span class="checkmark"></span>
-              {{ todo.text }}
-            </label>
-            <span class="delete">X</span>
-          </form>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <app-todo-list></app-todo-list>
 </div>
