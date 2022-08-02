@@ -11,8 +11,16 @@ import { FilterEnum } from 'types/filter.enum';
 })
 export class TodoListComponent implements OnInit {
   visibleTodos$: Observable<TodoInterface[]>;
+  noTodoClass$: Observable<boolean>;
+  isAllTodosSelected$: Observable<boolean>;
 
   constructor(private todoService: TodoService) {
+    this.isAllTodosSelected$ = this.todoService.todos$.pipe(
+      map((todos) => todos.every((todo) => todo.isCompleted))
+    );
+    this.noTodoClass$ = this.todoService.todos$.pipe(
+      map((todos) => todos.length === 0)
+    );
     this.visibleTodos$ = combineLatest([
       this.todoService.todos$,
       this.todoService.filter$,
@@ -29,4 +37,9 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  toggleAllTodos(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    this.todoService.toggleAll(target.checked);
+  }
 }

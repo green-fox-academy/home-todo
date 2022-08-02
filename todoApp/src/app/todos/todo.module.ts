@@ -7,11 +7,12 @@ import { TodoPageComponent } from './todo-page/todo-page.component';
 import { HeaderComponent } from './header/header.component';
 import { TodoService } from './todo.service';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoComponent } from './todo/todo.component';
 
 const routes: Routes = [{ path: '', component: TodoPageComponent }];
 
 @NgModule({
-  declarations: [TodoPageComponent, HeaderComponent, TodoListComponent],
+  declarations: [TodoPageComponent, HeaderComponent, TodoListComponent, TodoComponent],
   imports: [RouterModule.forChild(routes), CommonModule],
   providers: [TodoService],
 })

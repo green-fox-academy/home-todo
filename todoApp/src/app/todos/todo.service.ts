@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 import { FilterEnum } from 'types/filter.enum';
 import { TodoInterface } from 'types/todo.interface';
 
@@ -19,6 +19,18 @@ export class TodoService {
       id: Math.random().toString(16),
     };
     const updatedTodos = [...this.todos$.getValue(), newTodo];
+    this.todos$.next(updatedTodos);
+  }
+
+  toggleAll(isCompleted: boolean): void {
+    console.log('isCompleted', isCompleted);
+
+    const updatedTodos = this.todos$.getValue().map((todo) => {
+      return {
+        ...todo,
+        isCompleted,
+      };
+    });
     this.todos$.next(updatedTodos);
   }
 }
