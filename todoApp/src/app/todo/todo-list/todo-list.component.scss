@@ -10,7 +10,7 @@ h1 {
   text-align: center;
 }
 
-form {
+form.todo {
   margin: 50px 0;
   height: 50px;
   display: flex;
@@ -29,17 +29,15 @@ form {
     cursor: pointer;
     margin-left: 5px;
   }
+}
 
-  input[type="checkbox"]:checked {
-    border: 1px solid #34495e;
-    border-radius: 4px;
-    outline: none;
-    background-color: #41b883;
-    cursor: pointer;
-  }
+table {
+  display: flex;
+  flex-direction: column;
+}
 
-  input:checked {
-    border: 1px solid #41b883;
-    background-color: #34495e;
-  }
+span.delete {
+  padding-left: 10px;
+  color: red;
+  cursor: pointer;
 }

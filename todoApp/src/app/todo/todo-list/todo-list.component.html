@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Todo List</h1>
 
-  <form>
+  <form class="todo">
     <input type="text" placeholder="Add todo" />
     <button type="submit">Add</button>
   </form>
@@ -9,17 +9,20 @@
   <table>
     <thead>
       <tr>
-        <th>Task</th>
+        <th>Tasks</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let todo of listOfTodos">
         <td>
-          <label>
-            <input type="checkbox" />
-            <span class="checkmark"></span>
-            {{ todo.text }}
-          </label>
+          <form class="checkbox" [formControl]="checkboxForm">
+            <label>
+              <input type="checkbox" [checked]="todo.completed" />
+              <span class="checkmark"></span>
+              {{ todo.text }}
+            </label>
+            <span class="delete">X</span>
+          </form>
         </td>
       </tr>
     </tbody>

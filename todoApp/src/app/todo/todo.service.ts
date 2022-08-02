@@ -6,8 +6,8 @@ import { Todo } from 'types/todo.interface';
 })
 export class TodoService {
   listOfTodos: Todo[] = [
-    { text: 'Learn for test', difficulty: 'hard', completed: false },
-    { text: 'Do this project', importance: 'very important', completed: true },
+    { text: 'Learn for test', completed: false },
+    { text: 'Do this project', completed: true },
   ];
 
   constructor() {}
