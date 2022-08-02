@@ -1,10 +1,5 @@
 <div class="container">
-  <h1>Todo List</h1>
-
-  <form class="todo">
-    <input type="text" placeholder="Add todo" />
-    <button type="submit">Add</button>
-  </form>
+  <app-header></app-header>
 
   <table>
     <thead>
@@ -17,7 +12,7 @@
         <td>
           <form class="checkbox">
             <label>
-              <input type="checkbox" [checked]="todo.completed" />
+              <input type="checkbox" [checked]="todo.isCompleted" />
               <span class="checkmark"></span>
               {{ todo.text }}
             </label>
