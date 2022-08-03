@@ -1,0 +1,16 @@
+.hidden {
+  display: none;
+}
+
+ul.filters {
+  display: flex;
+
+  li {
+    list-style: none;
+    padding-right: 5px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
