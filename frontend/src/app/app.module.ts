@@ -13,7 +13,7 @@ import { AddtaskComponent } from './addtask/addtask.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ tasks: taskReducer } as ActionReducerMap<any, any>),
+    StoreModule.forRoot({ tasks: taskReducer }),
   ],
   providers: [],
   bootstrap: [AppComponent],

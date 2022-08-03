@@ -1,19 +1,13 @@
-import { Action } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 import { Task } from '../models/task.model';
 
-export const ADD_TASK = '[Task] add';
-export const REMOVE_TASK = '[Task] remove';
-
-export class AddTask implements Action {
-  readonly type = ADD_TASK;
-
-  constructor(public payload: Task) {}
-}
-
-export class RemoveTask implements Action {
-  readonly type = REMOVE_TASK;
-
-  constructor(public payload: number) {}
-}
-
-export type Actions = AddTask | RemoveTask;
+export const showTasks = createAction('[Task] show tasks');
+export const addTask = createAction('[Task] add', props<{ name: string }>());
+export const removeTask = createAction(
+  '[Task] remove',
+  props<{ taskIndex: number }>()
+);
+export const checkTask = createAction(
+  '[Task] check task',
+  props<{ taskIndex: number; task: Task }>()
+);

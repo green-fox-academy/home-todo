@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Task } from '../models/task.model';
-import { AppState } from '../app.state';
 import * as TaskAction from '../actions/task.action';
+import { TaskState } from '../reducers/task.reducer';
 
 @Component({
   selector: 'app-readtasks',
@@ -12,13 +12,23 @@ import * as TaskAction from '../actions/task.action';
 })
 export class ReadtasksComponent implements OnInit {
   tasks: Observable<Task[]>;
-  constructor(private store: Store<AppState>) {
-    this.tasks = this.store.select('tasks');
+  constructor(private store: Store<{ tasks: TaskState }>) {
+    this.tasks = this.store.select('tasks', 'taskList');
   }
 
   deleteTask(index: number) {
-    this.store.dispatch(new TaskAction.RemoveTask(index));
+    this.store.dispatch(
+      TaskAction.removeTask({
+        taskIndex: index,
+      })
+    );
   }
 
-  ngOnInit(): void {}
+  checkTask(index: number, task: Task) {
+    this.store.dispatch(TaskAction.checkTask({ taskIndex: index, task: task }));
+  }
+
+  ngOnInit(): void {
+    this.store.dispatch(TaskAction.showTasks());
+  }
 }
