@@ -6,3 +6,12 @@ section {
 li {
   list-style: none;
 }
+
+span.delete {
+  padding-left: 10px;
+  color: red;
+}
+
+.editing {
+  display: none;
+}

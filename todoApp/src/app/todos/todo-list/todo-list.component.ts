@@ -13,6 +13,7 @@ export class TodoListComponent implements OnInit {
   visibleTodos$: Observable<TodoInterface[]>;
   noTodoClass$: Observable<boolean>;
   isAllTodosSelected$: Observable<boolean>;
+  editingId: string | null = null;
 
   constructor(private todoService: TodoService) {
     this.isAllTodosSelected$ = this.todoService.todos$.pipe(
@@ -41,5 +42,9 @@ export class TodoListComponent implements OnInit {
   toggleAllTodos(event: Event): void {
     const target = event.target as HTMLInputElement;
     this.todoService.toggleAll(target.checked);
+  }
+
+  setEditingId(editingId: string | null): void {
+    this.editingId = editingId;
   }
 }
